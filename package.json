@@ -1,0 +1,25 @@
+{
+  "name": "http2-demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "morgan": "^1.9.1",
+    "serve-index": "^1.9.1",
+    "spdy": "^4.0.1"
+  },
+  "prettier": {
+    "singleQuote": true,
+    "printWidth": 120,
+    "useTabs": false,
+    "tabWidth": 2
+  }
+}
