@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "deploy": "now demo"
   },
   "author": "",
   "license": "ISC",
@@ -13,8 +14,7 @@
     "express": "^4.17.1",
     "fs": "0.0.1-security",
     "morgan": "^1.9.1",
-    "serve-index": "^1.9.1",
-    "spdy": "^4.0.1"
+    "serve-index": "^1.9.1"
   },
   "prettier": {
     "singleQuote": true,
