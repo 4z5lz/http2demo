@@ -1,4 +1,8 @@
 const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
+let isH2 = location.search.includes('http2');
+
+document.getElementById('title').innerHTML = isH2 ? 'Load 272 images via HTTP/2' : 'Load 272 images via HTTP/1.1';
+document.getElementById('switchBtn').innerHTML = isH2 ? 'Switch to HTTP/1.1' : 'Switch to HTTP/2';
 
 if (connection) {
   let speedType = 'fast';
@@ -42,3 +46,24 @@ window.addEventListener('load', () => {
   document.getElementById('performance').innerHTML = `<strong>Avg. load duration:</strong> ${avgLoadDuration} sec<br>
     <strong>All images loaded within:</strong> <strong style='color:red'>${responseEnd} sec.</strong>`;
 });
+
+$(document).ready(function() {
+  const url =
+    (isH2 ? 'https' : 'http') +
+    '://viewer-akamai-us-4.qa.sarine.com/qa4/alexs/imgoptim_demo/400x400_jpeg_75/img{num}.jpg?rand=' +
+    Math.random();
+
+  $('#imageplayer')
+    .empty()
+    .imgplay({
+      totalImages: 272,
+      imageName: 'img{num}.jpg',
+      urlDir: url,
+      rate: 30,
+      height: 320,
+      width: 320,
+      autoPlay: true
+    });
+});
+
+const switchPage = () => (location.href = location.href.replace('?http2', '') + (isH2 ? '' : '?http2'));
