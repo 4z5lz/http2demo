@@ -1,5 +1,5 @@
 const connection = navigator.connection || navigator.mozConnection || navigator.webkitConnection || null;
-let isH2 = location.search.includes('http2');
+const isH2 = location.search.includes('http2');
 
 document.getElementById('title').innerHTML = isH2 ? 'Load 272 images via HTTP/2' : 'Load 272 images via HTTP/1.1';
 document.getElementById('switchBtn').innerHTML = isH2 ? 'Switch to HTTP/1.1' : 'Switch to HTTP/2';
